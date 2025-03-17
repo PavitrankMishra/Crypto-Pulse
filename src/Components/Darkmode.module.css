@@ -1,0 +1,66 @@
+.darkmode_label {
+  width: 65px;
+  height: 30px;
+  background: #7c7c7c; /* Light mode background */
+  position: relative;
+  display: block;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.2),
+    inset 0px -5px 15px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.darkmode_label:after {
+  content: "";
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background: linear-gradient(180deg, #f1c40f, #d68910); /* Sun-like color */
+  left: 3px;
+  top: 3px;
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease-in-out;
+}
+
+.darkmode_input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.darkmode_label_sun {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  color:white;
+  z-index: 100;
+  transition: fill 0.3s ease-in-out;
+}
+
+.darkmode_label_moon {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  color: white;
+  z-index: 100;
+  transition: fill 0.3s ease-in-out;
+}
+
+.darkmode_input:checked + .darkmode_label{
+  background: #1e1e1e; /* Dark mode background */
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.5),
+    inset 0px -5px 15px rgba(255, 255, 255, 0.1);
+}
+
+
+.darkmode_input:checked + .darkmode_label:after {
+  left: 62px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg, #3498db, #2980b9); /* Cool blue */
+}
+
+.darkmode_label:active:after {
+  width: 30px;
+}
