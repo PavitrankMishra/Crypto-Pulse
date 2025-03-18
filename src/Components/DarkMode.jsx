@@ -18,10 +18,6 @@ const DarkMode = () => {
     }
   }, [darkMode]);
 
-  const toggleTheme = () => {
-    setDarkMode((prevMode) => !prevMode);
-  };
-
   return (
     <div className={styles.darkmode}>
       <input
@@ -29,7 +25,7 @@ const DarkMode = () => {
         type="checkbox"
         id="darkmode_toggle"
         checked={darkMode}
-        onChange={toggleTheme}
+        onChange={() => setDarkMode(!darkMode)}
       />
       <label className={styles.darkmode_label} htmlFor="darkmode_toggle">
         <FontAwesomeIcon icon={faSun} className={styles.darkmode_label_sun} />

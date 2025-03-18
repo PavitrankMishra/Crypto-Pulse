@@ -1,6 +1,8 @@
 // import React, { useEffect, useState } from "react";
 
 import Navbar from "./Navbar";
+import styles from "./Home.module.css";
+import bitcoin from "../assets/bitcoin2.png";
 
 const Home = () => {
   // const [cryptoData, setCryptoData] = useState([]);
@@ -23,7 +25,26 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
+      <div className={styles.homepageContainer}>
+        <Navbar />
+        <div className={styles.content}>
+          <div className={styles.left}>
+            <h1>Your Ultimate Crypto Tracker 🚀</h1>
+            <p className={styles.subtext}>
+              Track live prices, market trends, and historical data in
+              real-time.
+            </p>
+            <button>Explore More</button>
+          </div>
+          <div className={styles.right}>
+            <img
+              src={bitcoin}
+              alt="Crypto Tracker"
+              className={styles.cryptoImage}
+            />
+          </div>
+        </div>
+      </div>
     </>
   );
 };
