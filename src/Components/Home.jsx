@@ -3,8 +3,11 @@
 import Navbar from "./Navbar";
 import styles from "./Home.module.css";
 import bitcoin from "../assets/bitcoin2.png";
+// import { use } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   // const [cryptoData, setCryptoData] = useState([]);
 
   // const fetchData = async () => {
@@ -34,7 +37,12 @@ const Home = () => {
               Track live prices, market trends, and historical data in
               real-time.
             </p>
-            <button>Explore More</button>
+            <button
+              className={styles.getStarted}
+              onClick={() => navigate("/rates")}
+            >
+              Get Started
+            </button>
           </div>
           <div className={styles.right}>
             <img
