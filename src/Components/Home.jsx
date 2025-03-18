@@ -1,5 +1,7 @@
 // import React, { useEffect, useState } from "react";
 
+import Navbar from "./Navbar";
+
 const Home = () => {
   // const [cryptoData, setCryptoData] = useState([]);
 
@@ -20,9 +22,9 @@ const Home = () => {
   // }, []);
 
   return (
-    <div>
-      <p>Hello Home</p>
-    </div>
+    <>
+      <Navbar />
+    </>
   );
 };
 
