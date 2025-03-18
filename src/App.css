@@ -1,3 +1,19 @@
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #121212;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: black;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.darkmode {
+  background-color: var(--bg-dark);
+  color: white;
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
