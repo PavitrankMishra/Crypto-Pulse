@@ -47,36 +47,52 @@ const Exchanges = () => {
 
       {!loading && !error && displayedExchanges.length > 0 && (
         <>
-          {displayedExchanges.map((exchange) => (
-            <div className={styles.exchangeCard} key={exchange.exchangeId}>
-              <h2>
-                <strong>Name: </strong>
-                <p>{exchange.name}</p>
-              </h2>
-              <p>
-                <strong>Rank: {exchange.rank}</strong>
-              </p>
-              <h2>
-                <strong>Market Share: {exchange.percentTotalVolume}</strong>
-              </h2>
-              <p>
-                <strong>Trading Volume:</strong>
-                {exchange.volumeUsd}{" "}
-              </p>
-              <p>
-                <strong>Trading Pairs: </strong>
-                {exchange.tradingPairs}{" "}
-              </p>
-              <p>
-                <strong>Web Socket Support</strong>
-                {exchange.socket ? <span>True</span> : <span>False</span>}
-              </p>
-            </div>
-          ))}
-
+          <div className={styles.exchangesContainer}>
+            {displayedExchanges.map((exchange) => (
+              <div className={styles.exchangeCard} key={exchange.exchangeId}>
+                <h2>
+                  <strong>Name: </strong>
+                  <p>{exchange.name}</p>
+                </h2>
+                <p>
+                  <strong>Rank: {exchange.rank}</strong>
+                </p>
+                <h2>
+                  <strong>
+                    Market Share:{" "}
+                    {parseFloat(exchange.percentTotalVolume).toFixed(2)}
+                  </strong>
+                </h2>
+                <p>
+                  <strong>Trading Volume: </strong>
+                  {parseFloat(exchange.volumeUsd) >= 1e9
+                    ? (parseFloat(exchange.volumeUsd) / 1e9).toFixed(2) + "B"
+                    : parseFloat(exchange.volumeUsd) >= 1e6
+                    ? (parseFloat(exchange.volumeUsd) / 1e6).toFixed(2) + "M"
+                    : parseFloat(exchange.volumeUsd).toFixed(2)}
+                </p>
+                <p>
+                  <strong>Trading Pairs: </strong>
+                  {exchange.tradingPairs}{" "}
+                </p>
+                <p>
+                  <strong>Web Socket Support:</strong>
+                  {exchange.socket ? (
+                    <span className={styles.true}>True</span>
+                  ) : (
+                    <span className={styles.false}>False</span>
+                  )}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className={styles.loadMore}>
           {displayedExchanges.length < allExchanges.length && (
-            <button onClick={loadMore}>Load More</button>
+            <button className={styles.loadMoreBtn} onClick={loadMore}>
+              Load More
+            </button>
           )}
+          </div>
         </>
       )}
     </div>
