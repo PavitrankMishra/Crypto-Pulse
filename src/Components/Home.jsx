@@ -39,7 +39,7 @@ const Home = () => {
             </p>
             <button
               className={styles.getStarted}
-              onClick={() => navigate("/rates")}
+              onClick={() => navigate("/assets")}
             >
               Get Started
             </button>
