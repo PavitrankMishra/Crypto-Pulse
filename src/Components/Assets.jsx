@@ -2,8 +2,8 @@ import React from "react";
 import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
 
-const Rates = () => {
-  const [rates, setRates] = useState([]);
+const Assets = () => {
+  const [assets, setAssets] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,7 +18,7 @@ const Rates = () => {
         throw new Error(`Error: ${response.statusText}`);
       }
       const data = await response.json();
-      setRates(data.data);
+      setAssets(data.data);
       setLoading(false);
       console.log(data.data);
     } catch (err) {
@@ -33,7 +33,7 @@ const Rates = () => {
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = currentPage * itemsPerPage;
-  const visibleRates = rates.slice(startIndex, endIndex);
+  const visibleRates = assets.slice(startIndex, endIndex);
   return (
     <div>
       <Navbar />
@@ -42,7 +42,7 @@ const Rates = () => {
 
       {error && <p>Error: {error}</p>}
 
-      {!loading && !error && rates.length > 0 && (
+      {!loading && !error && assets.length > 0 && (
         <>
           <table border={1}>
             <thead>
@@ -87,7 +87,7 @@ const Rates = () => {
             </button>
             <button
               onClick={() => setCurrentPage((prev) => prev + 1)}
-              disabled={endIndex >= rates.length}
+              disabled={endIndex >= assets.length}
             >
               Next
             </button>
@@ -98,4 +98,4 @@ const Rates = () => {
   );
 };
 
-export default Rates;
+export default Assets;
