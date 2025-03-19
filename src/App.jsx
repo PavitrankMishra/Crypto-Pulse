@@ -18,7 +18,7 @@ function App() {
         <Route path="/assets" element={<Assets />} />
         <Route path="/exchanges" element={<Exchanges />} />
         <Route path="/livemarket" element={<LiveMarket />} />
-        <Route path="/exchanges" element={<HistoricalData />} />
+        <Route path="/historicdata" element={<HistoricalData />} />
       </Routes>
     </>
   );
