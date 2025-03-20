@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import ChartComponent from "./ChartComponent";
+import Loading from "./Loading";
 
 const HistoricalData = () => {
   const [marketData, setMarketData] = useState([]);
@@ -38,7 +39,7 @@ const HistoricalData = () => {
       <ChartComponent marketData={marketData} />
       <h2>Ethereum OHLC Data (Last 7 Days)</h2>
 
-      {loading && <p>Loading...</p>}
+      {loading && <Loading />}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
 
       {!loading && !error && marketData.length > 0 && (

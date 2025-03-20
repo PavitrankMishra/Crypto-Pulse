@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import styles from "./Exchanges.module.css";
+import Loading from "./Loading";
 
 const Exchanges = () => {
   const [allExchanges, setAllExchanges] = useState([]);
@@ -41,7 +42,7 @@ const Exchanges = () => {
   return (
     <div>
       <Navbar />
-      {loading && <p>Loading...</p>}
+      {loading && <Loading />}
 
       {error && <p>Error: {error.message}</p>}
 
@@ -87,11 +88,11 @@ const Exchanges = () => {
             ))}
           </div>
           <div className={styles.loadMore}>
-          {displayedExchanges.length < allExchanges.length && (
-            <button className={styles.loadMoreBtn} onClick={loadMore}>
-              Load More
-            </button>
-          )}
+            {displayedExchanges.length < allExchanges.length && (
+              <button className={styles.loadMoreBtn} onClick={loadMore}>
+                Load More
+              </button>
+            )}
           </div>
         </>
       )}

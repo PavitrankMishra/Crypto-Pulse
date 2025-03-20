@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
 import styles from "./Assets.module.css";
+import Loading from "./Loading";
 
 const Assets = () => {
   const [assets, setAssets] = useState([]);
@@ -47,7 +48,7 @@ const Assets = () => {
             className={styles.searchInput}
           />
         </div>
-        {loading && <p>Loading....</p>}
+        {loading && <Loading />}
 
         {error && <p>Error: {error}</p>}
 

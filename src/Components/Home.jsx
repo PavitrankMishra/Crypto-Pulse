@@ -5,6 +5,7 @@ import styles from "./Home.module.css";
 import bitcoin from "../assets/bitcoin2.png";
 // import { use } from "react";
 import { useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 const Home = () => {
   const navigate = useNavigate();
