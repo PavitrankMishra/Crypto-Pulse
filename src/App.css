@@ -1,9 +1,16 @@
+body {
+  background-color:#121212;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
 /* html,body {
   height:100%;
   width:100%;
 } */
 
-:root {
+/* :root {
   --bg-light: #ffffff;
   --bg-dark: #121212;
   --border-light: black;
@@ -23,4 +30,4 @@ body {
 
 .container {
   color:black;
-}
+} */

@@ -33,7 +33,7 @@ const Home = () => {
         <Navbar />
         <div className={styles.content}>
           <div className={styles.left}>
-            <h1>Your Ultimate Crypto Tracker 🚀</h1>
+            <h1>Your Ultimate <span>Crypto</span> Tracker 🚀</h1>
             <p className={styles.subtext}>
               Track live prices, market trends, and historical data in
               real-time.

@@ -4,11 +4,32 @@
   position: relative;
 }
 
+.homepageContainer span {
+  color: #daad65;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.homepageContainer span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #ffcc70;
+  transition: width 0.4s ease-in-out;
+}
+
+.homepageContainer span:hover::after {
+  width: 100%;
+
+}
+
 .content {
   display: flex;
   height: calc(100% - 100px);
   width: 100%;
-  background-color: black;
 }
 
 .left {
@@ -24,13 +45,29 @@
 .left h1 {
   font-size: 4vw;
   line-height: 4.4vw;
-  border: 2px solid green;
-  animation: fadeInUp 1s ease-in-out;
+  animation: fadeInUp 1.5s ease-in-out;
 }
 
 .left p {
-  animation: fadeInUp 1.5s ease-in-out;
+  animation: fadeInUp 2s ease-in-out;
   line-height: 3.4vw;
+  font-weight: 400;
+  transform: translateY(-2px);
+}
+
+.left p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #ffcc70;
+  transition: width 0.4s ease-in-out;
+}
+
+.left p:hover::after {
+  width: 100%;
 }
 
 .subtext {
@@ -51,7 +88,7 @@
   padding: 10px 10px;
   border-radius: 15px;
   transition: all 0.3s ease-in-out;
-  animation: fadeInUp 2s ease-in-out;
+  animation: fadeInUp 2.5s ease-in-out;
 }
 
 .getStarted:hover {
@@ -74,6 +111,8 @@
   border-radius: 55%;
   animation: upDown 2s ease-in-out infinite;
   object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 0 10vw #daad65;
 }
 
 @keyframes upDown {
