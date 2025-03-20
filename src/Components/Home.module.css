@@ -82,13 +82,15 @@
   border: none;
   font-family: "Poppins", sans-serif;
   background-color: transparent;
-  color: #daad65;
+  color: #121212;
   font-size: 2vw;
   border: 1px solid #daad65;
   padding: 10px 10px;
   border-radius: 15px;
   transition: all 0.3s ease-in-out;
   animation: fadeInUp 2.5s ease-in-out;
+  background: linear-gradient(135deg, #e6b056, #b88a40);
+  box-shadow: 0 0 10px #daad65;
 }
 
 .getStarted:hover {

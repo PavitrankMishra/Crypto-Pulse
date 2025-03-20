@@ -1,20 +1,30 @@
-.assetContainer {
-  width:90%;
+/* .assetContainer {
+  width: 90%;
   margin: auto;
-  background-color: #daad65;
+  background-color: #121212;
   border-radius: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
   color: black;
-  margin-top:2vh;
-}
+  margin-top: 2vh;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2); 
+} */
 
 .assetContainer h2 {
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   text-align: center;
-  color:  black;
+  color: #daad65;
   font-size: 36px;
   text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.assetContainer img {
+  width: 2vw;
+  height: 2vw;
+  background: transparent;
 }
 
 .inputContainer {
@@ -28,21 +38,36 @@
   max-width: 400px;
   padding: 2vh 2vw;
   font-size: 16px;
-  border: 2px solid #ddd;
+  border: 2px solid #daad65;
   border-radius: 8px;
   outline: none;
   transition: all 0.3s ease;
   margin: 0 2vw;
+  background-color: transparent;
+  color: #daad65;
 }
 
+.searchInput::placeholder {
+  color: #daad65;
+  opacity: 1;
+}
+
+.tableContainer {
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+  padding:0;
+  margin:0;
+}
 table {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
-  margin-top: 1.25vh;
+  margin: 1.25vh auto;
   border-radius: 8px;
   overflow: hidden;
   background-color: white;
   border: none;
+  border-radius: 10px;
+  overflow: hidden;
+
 }
 
 th,
@@ -59,17 +84,19 @@ th {
 
 tr:nth-child(even) {
   background-color: #f9f9f9;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 tr:hover {
   background: #f1f1f1;
+  background-color: rgba(255, 215, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
 }
 
 .change {
   font-weight: bold;
   padding: 2vh 2vw;
   border-radius: 5px;
-  border: 2px solid red;
   text-align: center;
 }
 
@@ -86,7 +113,6 @@ tr:hover {
 .pagination {
   text-align: center;
   margin-top: 2vh;
-  border: 2px solid red;
 }
 
 .pagination button {
@@ -96,6 +122,8 @@ tr:hover {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  background-color: #121212;
+  color: #daad65;
 }
 
 .pagination button:disabled {
