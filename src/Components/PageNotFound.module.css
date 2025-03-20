@@ -9,19 +9,19 @@
   color: #333;
 }
 
-h2 {
+.notfoundContainer h2 {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 20px;
   color: #ff4757;
 }
 
-p {
+.notfoundContainer p  {
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
-a {
+.notfoundContainer a {
   text-decoration: none;
   color: #ffffff;
   background-color: #007bff;
@@ -31,6 +31,6 @@ a {
   transition: background 0.3s ease-in-out;
 }
 
-a:hover {
+.notfoundContainer a:hover {
   background-color: #0056b3;
 }
