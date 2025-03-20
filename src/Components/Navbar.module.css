@@ -10,6 +10,13 @@
   border-bottom: 2px solid var(--border-light); /* Default: black in light mode */
   transition: border-bottom 0.3s ease-in-out;
   color: white;
+  border-bottom: 2px solid #daad65;
+  border-radius:12px;
+  box-shadow: 0 2px 4px #daad65;
+}
+
+.navbarContainer:hover {
+  box-shadow: 0 4px 10px #daad65;
 }
 
 .navbarContainer h1 {
