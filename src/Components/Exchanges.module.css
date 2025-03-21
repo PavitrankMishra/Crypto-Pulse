@@ -1,4 +1,5 @@
 .exchangeCard {
+  font-family: "Nunito", sans-serif;
   background: #fff;
   color: black;
   border-radius: 30px;
@@ -103,4 +104,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.socketSupportContainer .true {
+  color: green;
+}
+
+.socketSupportContainer .false {
+  color: red;
 }

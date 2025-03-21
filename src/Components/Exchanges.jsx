@@ -13,7 +13,7 @@ const Exchanges = () => {
   const [financeImage, setFinanceImage] = useState([]);
 
   const fetchFinanceImage = async () => {
-    const apiKey = "vKVdbtgq3J7RcaVRKMIHrnLFJC8txUAWQN0uQEasjMC11ZeqPspJGO9f"; // Replace with your actual API key
+    const apiKey = "vKVdbtgq3J7RcaVRKMIHrnLFJC8txUAWQN0uQEasjMC11ZeqPspJGO9f"; 
     const response = await fetch(
       "https://api.pexels.com/v1/search?query=finance&per_page=10",
       {
@@ -66,7 +66,7 @@ const Exchanges = () => {
     if (allExchanges.length > 0 && financeImage.length > 0) {
       const mergedData = allExchanges.map((exchange, index) => ({
         ...exchange,
-        imageUrl: financeImage[index], // Default if no image available
+        imageUrl: financeImage[index],
       }));
       setDisplayedExchanges(mergedData.slice(0, itemsPerPage));
     }
@@ -137,11 +137,11 @@ const Exchanges = () => {
                 </div>
                 <div className={styles.socketSupportContainer}>
                   <p>
-                    <strong>Web Socket Support:</strong>
+                    <strong>Web Socket Support :</strong>
                     {exchange.socket ? (
-                      <span className={styles.true}>True</span>
+                      <span className={styles.true}> <strong>True</strong></span>
                     ) : (
-                      <span className={styles.false}>False</span>
+                      <span className={styles.false}> <strong>False</strong></span>
                     )}
                   </p>
                 </div>

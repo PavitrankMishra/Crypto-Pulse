@@ -24,7 +24,7 @@ ChartJS.register(
 );
 
 const ChartComponent = ({ marketData }) => {
-  if (!marketData || marketData.length == 0) {
+  if (!marketData || marketData.length === 0) {
     return <p>Loading Data...</p>;
   }
 
@@ -35,6 +35,7 @@ const ChartComponent = ({ marketData }) => {
     l,
     c,
   }));
+
   const data = {
     datasets: [
       {
