@@ -8,12 +8,6 @@
   text-underline-offset: 10px;
 }
 
-.assetContainer img {
-  width: 2vw;
-  height: 2vw;
-  background: transparent;
-}
-
 .inputContainer {
   display: flex;
   justify-content: center;
@@ -44,8 +38,7 @@
   border-collapse: collapse;
   margin: 1.25vh auto;
   overflow: hidden;
-  background-color: white;
-  color: #121212;
+  color: white;
   border-color: var(--golden-accent);
   overflow-x: scroll;
 }
@@ -55,16 +48,17 @@ td {
   padding: 2vh;
   text-align: center;
   text-wrap: nowrap;
+  border:0.5px solid var(--golden-accent);
 }
 
 th {
-  background: #f4f4f4;
-  color: #333;
+  background: #333;
+  color: #f4f4f4;
 }
 
 tr:nth-child(even) {
-  background-color: #f9f9f9;
   background-color: rgba(255, 255, 255, 0.05);
+  background-color: #f9f9f9;
 }
 
 tr:hover {
@@ -73,10 +67,10 @@ tr:hover {
   transition: background-color 0.3s ease-in-out;
 }
 
-.change {
+.assetContainer .change {
   font-weight: bold;
   padding: 2vh 2vw;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   text-align: center;
 }
 
@@ -109,6 +103,24 @@ tr:hover {
 .pagination button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+tr:nth-child(even) {
+  background-color: #1a1a1a;
+}
+
+tr:nth-child(odd) {
+  background-color: #222222;
+}
+
+tr:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+}
+
+th {
+  background: #121212;
+  color: #f4f4f4;
 }
 
 @media (max-width: 768px) {
