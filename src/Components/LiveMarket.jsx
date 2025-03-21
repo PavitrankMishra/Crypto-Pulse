@@ -20,7 +20,6 @@ const LiveMarket = () => {
 
       const data = await response.json();
       setRates(data.data);
-      console.log(data.data);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -35,26 +34,38 @@ const LiveMarket = () => {
   return (
     <div className={styles.liveMarketContainer}>
       <Navbar />
-      <div className={styles.content}>
-        <h2 className="title">Live Market Rates</h2>
+      <div className={styles.liveMarketContent}>
+        <h2 className={styles.title}>Live Market Rates</h2>
 
         {loading && <Loading />}
         {error && <p className={styles.errorText}>Error: {error}</p>}
 
         {!loading && !error && rates.length > 0 && (
-          <div className={styles.gridContainer}>
-            {rates.map((rate, index) => (
-              <div key={`${rate.id}-${index}`} className={styles.rateCard}>
-                <p className={styles.rateId}>{rate.id.toUpperCase()}</p>
-                <p className={styles.rateSymbol}>
-                  <strong>Symbol:</strong> {rate.currencySymbol || "N/A"}
-                </p>
-                <p className={styles.rateValue}>
-                  <strong>Rate (USD):</strong> $
-                  {parseFloat(rate.rateUsd).toFixed(2)}
-                </p>
-              </div>
-            ))}
+          <div className={styles.tableWrapper}>
+            <table className={styles.marketTable}>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>ID</th>
+                  <th>Symbol</th>
+                  <th>Rate (USD)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rates.slice(0, 20).map((rate, index) => (
+                  <tr
+                    key={rate.id}
+                    className={styles.tableRow}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <td>{index + 1}</td>
+                    <td>{rate.id.toUpperCase()}</td>
+                    <td>{rate.currencySymbol || "N/A"}</td>
+                    <td>${parseFloat(rate.rateUsd).toFixed(2)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
       </div>
