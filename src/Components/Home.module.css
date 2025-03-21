@@ -1,7 +1,8 @@
 .homepageContainer {
-  width: 100%;
+  width: 95%;
   height: 100vh;
   position: relative;
+  margin: 4px auto;
 }
 
 .homepageContainer span {

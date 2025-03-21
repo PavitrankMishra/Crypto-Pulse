@@ -1,22 +1,23 @@
 .navbarContainer {
   height: 75px;
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
   box-sizing: border-box;
   overflow: hidden;
-  border-bottom: 2px solid var(--border-light); /* Default: black in light mode */
-  transition: border-bottom 0.3s ease-in-out;
+  border-bottom: 2px solid var(--golden-accent);
   color: white;
-  border-bottom: 2px solid #daad65;
-  border-radius:12px;
-  box-shadow: 0 2px 4px #daad65;
+  border-radius: 12px;
+  box-shadow: 0 4px 4px var(--golden-accent);
+  margin: 10px auto;
+  border-bottom: 2px solid var(--golden-accent);
 }
 
 .navbarContainer:hover {
-  box-shadow: 0 4px 10px #daad65;
+  box-shadow: 0 8px 10px var(--golden-accent);
+  transition: box-shadow 0.6s ease-in-out;
 }
 
 .navbarContainer h1 {
@@ -24,36 +25,33 @@
 }
 
 .navbarContainer span {
-  color: #daad65;
+  color: var(--golden-accent);
   text-decoration: underline;
   text-underline-offset: 6px;
 }
 
-/* When dark mode is enabled, change border color */
-body.darkmode .navbarContainer {
-  border-bottom: 2px solid var(--border-dark); /* White border in dark mode */
-}
-
 .navbarContainer .navbarRight {
   display: flex;
-  gap: 20px; /* Adds spacing between items */
+  gap: 3vw;
 }
 
 .navbarLeft {
-  font-size: 24px;
+  font-size: 1.75vw;
   font-weight: bold;
-  white-space: nowrap; /* Prevents wrapping */
+  white-space: nowrap;
 }
 
-.navbarRight h3 {
+.navbarRight h3 a {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.25vw;
   cursor: pointer;
   transition: color 0.3s ease;
   position: relative;
+  color: white;
+  text-decoration: none;
 }
 
-.navbarRight h3::after {
+.navbarRight h3 a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -64,11 +62,11 @@ body.darkmode .navbarContainer {
   transition: width 0.4s ease-in-out;
 }
 
-.navbarRight h3:hover::after {
+.navbarRight h3 a:hover::after {
   width: 100%;
 }
 
-.navbarRight h3:hover {
+.navbarRight h3 a:hover {
   color: #daad65;
 }
 

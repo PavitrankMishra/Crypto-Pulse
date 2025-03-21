@@ -1,24 +1,11 @@
-/* .assetContainer {
-  width: 90%;
-  margin: auto;
-  background-color: #121212;
-  border-radius: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
-  color: black;
-  margin-top: 2vh;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2); 
-} */
-
 .assetContainer h2 {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: "Manrope", sans-serif;
   text-align: center;
-  color: #daad65;
+  color: var(--golden-accent);
   font-size: 36px;
   text-transform: uppercase;
   text-decoration: underline;
+  text-underline-offset: 10px;
 }
 
 .assetContainer img {
@@ -34,46 +21,39 @@
 }
 
 .searchInput {
+  border: none;
+  outline: none;
   width: 100%;
   max-width: 400px;
   padding: 2vh 2vw;
   font-size: 16px;
-  border: 2px solid #daad65;
-  border-radius: 8px;
-  outline: none;
+  border-bottom: 3px solid var(--golden-accent);
   transition: all 0.3s ease;
   margin: 0 2vw;
   background-color: transparent;
-  color: #daad65;
+  color: white;
 }
 
 .searchInput::placeholder {
-  color: #daad65;
+  color: white;
   opacity: 1;
 }
 
-.tableContainer {
-  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
-  padding:0;
-  margin:0;
-}
-table {
+.assetContainer table {
   width: 90%;
   border-collapse: collapse;
   margin: 1.25vh auto;
-  border-radius: 8px;
   overflow: hidden;
   background-color: white;
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
-
+  color: #121212;
+  border-color: var(--golden-accent);
+  overflow-x: scroll;
 }
 
 th,
 td {
   padding: 2vh;
-  text-align: left;
+  text-align: center;
   text-wrap: nowrap;
 }
 
@@ -123,7 +103,7 @@ tr:hover {
   cursor: pointer;
   font-size: 16px;
   background-color: #121212;
-  color: #daad65;
+  color: var(--golden-accent);
 }
 
 .pagination button:disabled {

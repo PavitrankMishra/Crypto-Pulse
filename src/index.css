@@ -1,6 +1,16 @@
-:root {
-  font-family: "Poppins", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Poppins:wght@300;400;700&family=Montserrat:wght@300;400;700&family=Manrope:wght@300;400;700&family=Nunito:wght@300;400;700&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=EB+Garamond:wght@400;700&family=Merriweather:wght@400;700&family=Lora:wght@400;700&family=Cormorant+Garamond:wght@400;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;700&family=Fira+Code:wght@300;400;700&family=JetBrains+Mono:wght@300;400;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@400;700&family=Raleway+Dots&family=Bebas+Neue&display=swap");
+
+:root {
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(to bottom, #111, #222);
+  --golden-accent: #daad65;
+  --border-light: gray;
 }
 
 /* html, body {
