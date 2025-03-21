@@ -62,9 +62,6 @@ const Exchanges = () => {
     imageUrl: financeImage[index],
   }));
 
-  // console.log(...mergedExchanges);
-  // console.log(...displayedExchanges);
-
   useEffect(() => {
     if (allExchanges.length > 0 && financeImage.length > 0) {
       const mergedData = allExchanges.map((exchange, index) => ({
