@@ -1,47 +1,124 @@
-/* Container for the rate cards */
-.ratesContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+/* Container for the live market */
+.liveMarketContainer {
+  background-color: #121212;
+  color: white;
+  min-height: 100vh;
+  padding-bottom: 30px;
+}
+
+/* Central content area */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Title styling */
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Error message styling */
+.errorText {
+  color: red;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Grid container for rate cards */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+/* Individual rate card styling */
+.rateCard {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px #daad65;
+  border: 2px solid #daad65;
+  position: relative;
+  padding: 20px;
+  background: black;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.rateCard::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(270deg, gold, white, black);
+  background-size: 200% 200%;
+  border-radius: 12px;
+  z-index: -1;
+  animation: borderAnimation 6s linear infinite;
+}
+
+.rateCard::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background: black;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+/* Hover effect for cards */
+.rateCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px #daad65;
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+
+/* Rate ID styling */
+.rateId {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Symbol and rate values */
+.rateSymbol,
+.rateValue {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content {
     padding: 20px;
-    color: black;
   }
-  
-  /* Styling for each rate card */
-  .rateCard {
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 250px;
-    transition: transform 0.2s ease-in-out;
+}
+
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  /* Add hover effect for better UI */
-  .rateCard:hover {
-    transform: scale(1.05);
+  50% {
+    background-position: 100% 50%;
   }
-  
-  /* Title styling */
-  .rateCard p {
-    margin: 8px 0;
-    font-size: 16px;
+  100% {
+    background-position: 0% 50%;
   }
-  
-  /* Strong tags styling for better readability */
-  .rateCard strong {
-    color: #333;
-    font-weight: bold;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .ratesContainer {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
+}

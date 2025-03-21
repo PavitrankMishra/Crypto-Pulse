@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
-import styles from "./LiveMarket.module.css";
 import Loading from "./Loading";
+import styles from "./LiveMarket.module.css";
 
 const LiveMarket = () => {
   const [rates, setRates] = useState([]);
@@ -19,10 +19,10 @@ const LiveMarket = () => {
       }
 
       const data = await response.json();
-      console.log(data.data);
       setRates(data.data);
+      console.log(data.data);
     } catch (err) {
-      setError(err);
+      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -33,32 +33,31 @@ const LiveMarket = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.liveMarketContainer}>
       <Navbar />
+      <div className={styles.content}>
+        <h2 className="title">Live Market Rates</h2>
 
-      {loading && <Loading />}
-      {error && <p style={{ color: "red" }}>Error: {error.message}</p>}
+        {loading && <Loading />}
+        {error && <p className={styles.errorText}>Error: {error}</p>}
 
-      {!loading && !error && rates.length > 0 && (
-        <>
-          <div className={styles.ratesContainer}>
+        {!loading && !error && rates.length > 0 && (
+          <div className={styles.gridContainer}>
             {rates.map((rate, index) => (
-              <div className={styles.rateCard} key={`${rate.id} - ${index}`}>
-                <p>
-                  <strong>ID:</strong> {rate.id}
-                </p>
-                <p>
+              <div key={`${rate.id}-${index}`} className={styles.rateCard}>
+                <p className={styles.rateId}>{rate.id.toUpperCase()}</p>
+                <p className={styles.rateSymbol}>
                   <strong>Symbol:</strong> {rate.currencySymbol || "N/A"}
                 </p>
-                <p>
-                  <strong>Rate (USD):</strong>{" "}
+                <p className={styles.rateValue}>
+                  <strong>Rate (USD):</strong> $
                   {parseFloat(rate.rateUsd).toFixed(2)}
                 </p>
               </div>
             ))}
           </div>
-        </>
-      )}
+        )}
+      </div>
     </div>
   );
 };
