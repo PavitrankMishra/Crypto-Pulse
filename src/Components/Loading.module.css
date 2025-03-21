@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height:60vh;
 }
 
 @keyframes spin {
@@ -16,11 +17,12 @@
 
 .spinner {
   font-size: 4rem;
-  color: black;
+  color: var(--golden-accent);
   animation: spin 3s linear infinite, fadePulse 2s ease-in-out infinite;
 }
 
 .container p {
+  color: var(--golden-accent);
   font-size: 18px;
   font-weight: bold;
   animation: fadePulse 2s ease-in-out infinite;
