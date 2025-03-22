@@ -7,7 +7,10 @@ const Navbar = () => {
   return (
     <header className={styles.navbarContainer}>
       <h1 className={styles.navbarLeft}>
-        <span>CRYPTO</span> PULSE
+        <span>
+          <Link to="/">CRYPTO</Link>
+        </span>{" "}
+        PULSE
       </h1>
       <div className={styles.navbarRight}>
         <h3>

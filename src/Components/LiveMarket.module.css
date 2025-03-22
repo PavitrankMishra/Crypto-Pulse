@@ -24,7 +24,7 @@
 }
 
 .liveMarketContent .tableWrapper {
-  overflow-x: auto;
+  /* overflow-x: auto; */
   margin-top: 20px;
 }
 
@@ -33,7 +33,7 @@
   border-collapse: collapse;
   background-color: #1e1e1e;
   border-radius: 8px;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 .marketTable th,

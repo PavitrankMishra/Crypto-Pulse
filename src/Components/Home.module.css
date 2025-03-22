@@ -3,6 +3,7 @@
   height: 100vh;
   position: relative;
   margin: 4px auto;
+  /* background: linear-gradient(to bottom, #111, #222); */
 }
 
 .homepageContainer span {

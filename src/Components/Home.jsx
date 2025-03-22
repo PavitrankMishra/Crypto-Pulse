@@ -6,6 +6,8 @@ import bitcoin from "../assets/bitcoin2.png";
 // import { use } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import Footer from "./Footer";
+import FeatureSection from "./FeatureSection";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -33,7 +35,9 @@ const Home = () => {
         <Navbar />
         <div className={styles.content}>
           <div className={styles.left}>
-            <h1>Your Ultimate <span>Crypto</span> Tracker 🚀</h1>
+            <h1>
+              Your Ultimate <span>Crypto</span> Tracker 🚀
+            </h1>
             <p className={styles.subtext}>
               Track live prices, market trends, and historical data in
               real-time.
@@ -54,6 +58,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <FeatureSection />
+      <Footer />
     </>
   );
 };

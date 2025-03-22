@@ -24,21 +24,22 @@
   cursor: pointer;
 }
 
-.navbarContainer span {
-  color: var(--golden-accent);
-  text-decoration: underline;
-  text-underline-offset: 6px;
-}
 
 .navbarContainer .navbarRight {
   display: flex;
   gap: 3vw;
 }
 
+
 .navbarLeft {
   font-size: 1.75vw;
   font-weight: bold;
   white-space: nowrap;
+}
+
+.navbarLeft span a{
+  color: #daad65;
+  text-decoration: none;
 }
 
 .navbarRight h3 a {

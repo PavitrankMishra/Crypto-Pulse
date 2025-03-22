@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import ChartComponent from "./ChartComponent";
 import Loading from "./Loading";
 import styles from "./HistoricalData.module.css";
+import Footer from "./Footer";
 
 const HistoricalData = () => {
   const [marketData, setMarketData] = useState([]);
@@ -46,47 +47,50 @@ const HistoricalData = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <Navbar />
-      <div className={styles.headingContainer}>
-        <h2>Cryptocurrency OHLC Data (Last 7 Days)</h2>
+    <>
+      <div className={styles.container}>
+        <Navbar />
+        <div className={styles.headingContainer}>
+          <h2>Cryptocurrency OHLC Data (Last 7 Days)</h2>
+        </div>
+        <ChartComponent marketData={marketData} />
+
+        {loading && <Loading />}
+        {error && <p className="error">Error: {error}</p>}
+
+        {!loading && !error && marketData.length > 0 && (
+          <table>
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Open</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Close</th>
+              </tr>
+            </thead>
+            <tbody>
+              {marketData.map(([timestamp, open, high, low, close], index) => (
+                <motion.tr
+                  key={timestamp}
+                  custom={index}
+                  variants={rowVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <td>{new Date(timestamp).toLocaleDateString()}</td>
+                  <td>{open.toFixed(6)}</td>
+                  <td className={styles.high}>{high.toFixed(6)}</td>
+                  <td className={styles.low}>{low.toFixed(6)}</td>
+                  <td>{close.toFixed(6)}</td>
+                </motion.tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
-      <ChartComponent marketData={marketData} />
-
-      {loading && <Loading />}
-      {error && <p className="error">Error: {error}</p>}
-
-      {!loading && !error && marketData.length > 0 && (
-        <table>
-          <thead>
-            <tr>
-              <th>Timestamp</th>
-              <th>Open</th>
-              <th>High</th>
-              <th>Low</th>
-              <th>Close</th>
-            </tr>
-          </thead>
-          <tbody>
-            {marketData.map(([timestamp, open, high, low, close], index) => (
-              <motion.tr
-                key={timestamp}
-                custom={index}
-                variants={rowVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <td>{new Date(timestamp).toLocaleDateString()}</td>
-                <td>{open.toFixed(6)}</td>
-                <td className={styles.high}>{high.toFixed(6)}</td>
-                <td className={styles.low}>{low.toFixed(6)}</td>
-                <td>{close.toFixed(6)}</td>
-              </motion.tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </div>
+      <Footer />
+    </>
   );
 };
 

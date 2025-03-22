@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
 import styles from "./Assets.module.css";
 import Loading from "./Loading";
+import Footer from "./Footer";
 // import bitcoin from "../assets/bitcoin3.png";
 
 const Assets = () => {
@@ -55,38 +56,38 @@ const Assets = () => {
 
         {!loading && !error && assets.length > 0 && (
           <>
-              <table border={1}>
-                <thead>
-                  <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Symbol</th>
-                    <th>Price (USD)</th>
-                    <th>24H Change</th>
-                    <th>Market</th>
+            <table border={1}>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Name</th>
+                  <th>Symbol</th>
+                  <th>Price (USD)</th>
+                  <th>24H Change</th>
+                  <th>Market</th>
+                </tr>
+              </thead>
+              <tbody>
+                {visibleRates.map((coin) => (
+                  <tr key={coin.id}>
+                    <td>{coin.rank}</td>
+                    <td>{coin.name}</td>
+                    <td>{coin.symbol}</td>
+                    <td>${parseFloat(coin.priceUsd).toFixed(2)}</td>
+                    <td
+                      className={`${styles.change} ${
+                        parseFloat(coin.changePercent24Hr) < 0
+                          ? styles.red
+                          : styles.green
+                      }`}
+                    >
+                      {parseFloat(coin.changePercent24Hr).toFixed(2)}%
+                    </td>
+                    <td>{coin.symbol}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {visibleRates.map((coin) => (
-                    <tr key={coin.id}>
-                      <td>{coin.rank}</td>
-                      <td>{coin.name}</td>
-                      <td>{coin.symbol}</td>
-                      <td>${parseFloat(coin.priceUsd).toFixed(2)}</td>
-                      <td
-                        className={`${styles.change} ${
-                          parseFloat(coin.changePercent24Hr) < 0
-                            ? styles.red
-                            : styles.green
-                        }`}
-                      >
-                        {parseFloat(coin.changePercent24Hr).toFixed(2)}%
-                      </td>
-                      <td>{coin.symbol}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                ))}
+              </tbody>
+            </table>
 
             <div className={styles.pagination}>
               <button
@@ -105,6 +106,7 @@ const Assets = () => {
           </>
         )}
       </div>
+      <Footer />
     </>
   );
 };
