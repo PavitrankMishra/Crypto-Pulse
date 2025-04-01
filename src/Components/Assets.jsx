@@ -8,6 +8,7 @@ import Footer from "./Footer";
 
 const Assets = () => {
   const [assets, setAssets] = useState([]);
+  const [originalAssets, setOriginalAssets] = useState([]); 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,6 +26,7 @@ const Assets = () => {
       }
       const data = await response.json();
       setAssets(data.data);
+      setOriginalAssets(data.data);
       setLoading(false);
       console.log(data.data);
     } catch (err) {
@@ -49,6 +51,7 @@ const Assets = () => {
     );
     setAssets(sortedAssets);
     console.log("Button clicked");
+    console.log(assets);
   };
 
   const sortLowToHigh = () => {
@@ -64,6 +67,11 @@ const Assets = () => {
     );
     setAssets(pricedSortedAssets);
     console.log("Price Sorted high to Low");
+  };
+
+  const resetData = () => {
+    setAssets(originalAssets);
+    console.log("Reset Data clicked");
   };
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = currentPage * itemsPerPage;
@@ -82,7 +90,7 @@ const Assets = () => {
             onChange={(e) => setQuery(e.target.value)}
           />
           <button onClick={sortingAlphabetically}>Sort Aplhabetically</button>
-          {/* <button onClick={sortHighToLow}>Sort High To Low</button> */}
+          <button onClick={resetData}>Reset filters</button>
         </div>
         {loading && <Loading />}
 
