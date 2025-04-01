@@ -14,6 +14,7 @@ const Assets = () => {
   const [query, setQuery] = useState("");
   const itemsPerPage = 10;
 
+  // Fetching assets data from the api
   const fetchRates = async () => {
     try {
       setLoading(true);
@@ -32,14 +33,38 @@ const Assets = () => {
       setLoading(false);
     }
   };
+
+  // Calling the fetchRates function on initial render
   useEffect(() => {
     fetchRates();
   }, []);
 
-  const filteredAssets = assets.filter((coin) =>
+  let filteredAssets = assets.filter((coin) =>
     coin.name.toLowerCase().includes(query.toLowerCase())
   );
 
+  const sortingAlphabetically = () => {
+    const sortedAssets = [...assets].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    setAssets(sortedAssets);
+    console.log("Button clicked");
+  };
+
+  const sortLowToHigh = () => {
+    const lowToHigh = [...assets].sort(
+      (a, b) => parseFloat(a.priceUsd) - parseFloat(b.priceUsd)
+    );
+    setAssets(lowToHigh);
+    console.log("Price Sorted Low to High");
+  };
+  const sortHighToLow = () => {
+    const pricedSortedAssets = [...assets].sort(
+      (a, b) => parseFloat(b.priceUsd) - parseFloat(a.priceUsd)
+    );
+    setAssets(pricedSortedAssets);
+    console.log("Price Sorted high to Low");
+  };
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = currentPage * itemsPerPage;
   const visibleRates = filteredAssets.slice(startIndex, endIndex);
@@ -56,6 +81,8 @@ const Assets = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
+          <button onClick={sortingAlphabetically}>Sort Aplhabetically</button>
+          {/* <button onClick={sortHighToLow}>Sort High To Low</button> */}
         </div>
         {loading && <Loading />}
 
@@ -69,7 +96,15 @@ const Assets = () => {
                   <th>Rank</th>
                   <th>Name</th>
                   <th>Symbol</th>
-                  <th>Price (USD)</th>
+                  <th>
+                    Price (USD){" "}
+                    <button onClick={sortHighToLow}>
+                      <i class="ri-arrow-down-line"></i>
+                    </button>
+                    <button onClick={sortLowToHigh}>
+                      <i class="ri-arrow-up-line"></i>
+                    </button>
+                  </th>
                   <th>24H Change</th>
                   <th>Market</th>
                 </tr>
