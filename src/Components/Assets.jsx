@@ -11,6 +11,7 @@ const Assets = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [query, setQuery] = useState("");
   const itemsPerPage = 10;
 
   const fetchRates = async () => {
@@ -35,9 +36,13 @@ const Assets = () => {
     fetchRates();
   }, []);
 
+  const filteredAssets = assets.filter((coin) =>
+    coin.name.toLowerCase().includes(query.toLowerCase())
+  );
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = currentPage * itemsPerPage;
-  const visibleRates = assets.slice(startIndex, endIndex);
+  const visibleRates = filteredAssets.slice(startIndex, endIndex);
   return (
     <>
       <Navbar />
@@ -48,6 +53,8 @@ const Assets = () => {
             type="text"
             placeholder="Enter the name of cryptocurrency"
             className={styles.searchInput}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
         </div>
         {loading && <Loading />}
